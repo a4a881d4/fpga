@@ -21,7 +21,7 @@ include $(BASE_DIR)/../tools/make/viv_design_builder.mak
 include $(IP_DIR)/Makefile.inc
 include coregen_dsp/Makefile.srcs
 include $(LIB_DIR)/ip/Makefile.inc
-include $(LIB_DIR)/hls/Makefile.inc
+# include $(LIB_DIR)/hls/Makefile.inc
 include $(LIB_DIR)/control/Makefile.srcs
 include $(LIB_DIR)/fifo/Makefile.srcs
 include $(LIB_DIR)/simple_gemac/Makefile.srcs

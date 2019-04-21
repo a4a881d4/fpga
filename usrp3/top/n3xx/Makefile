@@ -21,6 +21,7 @@
 # OPTIONS += NPIO_LANES=2
 # Uncomment this line to add four example Aurora loopback lanes on the QSFP NPIO bus.
 # OPTIONS += QSFP_LANES=4
+WA_DEFS=SFP0_WR=1     SFP1_AURORA=1 USE_REPLAY=1   BUILD_1G=1     BUILD_AURORA=1 $(OPTIONS)
 
 WX_DEFS=SFP0_WR=1     SFP1_10GBE=1  USE_REPLAY=1   BUILD_WR=1     BUILD_10G=1    $(OPTIONS)
 HG_DEFS=SFP0_1GBE=1   SFP1_10GBE=1  USE_REPLAY=1   BUILD_1G=1     BUILD_10G=1    $(OPTIONS)
@@ -97,6 +98,11 @@ N310_AA: build/usrp_n310_fpga_AA.dts
 N300_WX:  build/usrp_n300_fpga_WX.dts
 	$(call vivado_build,N300,$(WX_DEFS) N300=1)
 	$(call post_build,N300,WX)
+
+##N300_WA:  1GigE White Rabbit on SFP+ Port0, Aurora on SFP+ Port1.
+N300_WA:  build/usrp_n300_fpga_WA.dts
+	$(call vivado_build,N300,$(WA_DEFS) N300=1)
+	$(call post_build,N300,WA)
 
 ##N300_HG:  1GigE on SFP+ Port0, 10Gig on SFP+ Port1.
 N300_HG:  build/usrp_n300_fpga_HG.dts
